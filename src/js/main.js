@@ -1,6 +1,5 @@
-import { createRequire } from 'module';
-import $ from '../../assets/splitar/jquery-1.11.1.min.js';
-const shuffle = createRequire('./shuffle')
+import _ from 'lodash'
+const shuffle = require('./shuffle')
 
 function rand (max) {
   return Math.floor(Math.random() * max)
@@ -445,7 +444,11 @@ function Player (maze, c, _cellsize, onComplete, sprite = null) {
     $('#view').swipe({
       swipe: function (
         event,
-        direction
+        direction,
+        distance,
+        duration,
+        fingerCount,
+        fingerData
       ) {
         console.log(direction)
         switch (direction) {
